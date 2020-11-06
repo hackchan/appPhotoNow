@@ -1,12 +1,20 @@
 {
-  "name": "appPhotoNow",
+  "name": "appphotonow",
   "version": "1.0.0",
-  "description": "",
+  "description": "```BASH\r git init\r echo \"# Proyecto MERN\" > README.md\r npx license MIT -o \"Fabio Rojas\" > LICENSE\r npx gitignore node\r npx covgen \"fabiorojas7@gmail.com\"\r npm init -y # o yarn init -y\r git add -A\r git commit -m \"Initial commit\"\r ```",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Fabio Rojas",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hackchan/appPhotoNow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hackchan/appPhotoNow/issues"
+  },
+  "homepage": "https://github.com/hackchan/appPhotoNow#readme"
 }
