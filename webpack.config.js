@@ -10,5 +10,17 @@ module.exports = {
     filename: 'app.bundle.js',
   },
 
-  plugins: [new HmtlWebpackPlugin()],
+  module:{
+    rules:[
+      {
+        test:/\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      }
+    ]
+  },
+
+  plugins: [new HmtlWebpackPlugin({
+    template: 'src/index.html'
+  })],
 }
