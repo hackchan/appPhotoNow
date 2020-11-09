@@ -2,18 +2,18 @@ const path = require('path')
 const HmtlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   devServer: {
-    open: true,
+    open: true
   },
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'app.bundle.js',
+    filename: 'app.bundle.js'
   },
 
-  module:{
-    rules:[
+  module: {
+    rules: [
       {
-        test:/\.js$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
       }
@@ -22,5 +22,5 @@ module.exports = {
 
   plugins: [new HmtlWebpackPlugin({
     template: 'src/index.html'
-  })],
+  })]
 }
