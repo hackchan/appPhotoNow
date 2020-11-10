@@ -1,3 +1,3 @@
-import React from 'React'
-
-export const App = () => <h1>App principal</h1>
+import React from 'react'
+import { Category } from './components/Category'
+export const App = () => <Category />
