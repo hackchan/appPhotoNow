@@ -1,9 +1,11 @@
 import React from 'react'
 import { ListOfCategory } from './components/ListOfCategory'
-import { GlobalStyles } from './styles/GlobalStyles'
+import { ListOfPhotoCard } from './components/ListOfPhotoCard'
+import { GlobalStyle } from './styles/GlobalStyle'
 export const App = () => (
   <>
-    <GlobalStyles />
+    <GlobalStyle />
     <ListOfCategory />
+    <ListOfPhotoCard />
   </>
 )
