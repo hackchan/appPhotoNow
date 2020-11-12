@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import { fadeIn } from '../../styles/animation'
 export const ImgWrapper = styled.div`
   border-radius: 10px;
   display: block;
@@ -16,6 +16,7 @@ export const Img = styled.img`
   width: 100%;
   top: 0;
   object-fit: cover;
+  ${fadeIn({ time: '1s' })}
 `
 
 export const Button = styled.button`
