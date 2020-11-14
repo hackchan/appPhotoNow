@@ -21,3 +21,11 @@ or
 npx webpack src/index.js
 
 ```
+
+# Hook principales
+
+ * UseState:  Añade estado local a tu componente
+ * UseEffect: Ejecutar una funcion cada vez que renderizemos nuestro  
+              componente
+ * UseContext: nos permite acceder a la conext API para acceder a valores
+               globlaes si pasar por las props. 
