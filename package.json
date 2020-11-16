@@ -47,7 +47,9 @@
   "standard": {
     "ignore": [
       "/dist"
-    ]
+    ],
+    "rules":{
+  "indent" : ["error", 4, { "ignoredNodes": ["JSXElement *"] }]}
   },
   "eslintConfig": {
     "extends": [

@@ -1,4 +1,5 @@
-/* eslint-disable multiline-ternary */
+/* eslint-disable react/jsx-indent */
+/* eslint-disable indent */
 import React, { useEffect, useState } from 'react'
 import { Category } from '../Category'
 import { CategorySkeleton } from '../CategorySkeleton'
@@ -69,7 +70,6 @@ export const ListOfCategory = () => {
       {loading
         ? [1, 2, 3, 4, 5, 6].map((id) => (
             <Item key={id}>
-              {' '}
               <CategorySkeleton light={false} />
             </Item>
           ))
