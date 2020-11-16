@@ -1,27 +1,50 @@
+/* eslint-disable multiline-ternary */
 import React, { useEffect, useState } from 'react'
 import { Category } from '../Category'
+import { CategorySkeleton } from '../CategorySkeleton'
 import { List, Item } from './styles'
 import axios from 'axios'
 // import { categories as mockCategories } from '../../../api/db/db.json'
-export const ListOfCategory = () => {
-  const [categories, setCategories] = useState([])
 
+const useCategoriesData = () => {
+  const [categories, setCategories] = useState([])
+  const [loading, setLoading] = useState(false)
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const { data, status } = await axios({
+        setLoading(true)
+        const { data } = await axios({
           url: 'https://dgotv2-server.vercel.app/categories',
           method: 'GET'
         })
-        console.log(status)
+
         setCategories(data)
+        // setLoading(false)
       } catch (error) {
+        // setLoading(false)
         console.log(error)
       }
     }
     fetchCategories()
   }, [])
 
+  return { categories, loading }
+}
+export const ListOfCategory = () => {
+  const [showFixed, setShowFixed] = useState(false)
+  const { categories, loading } = useCategoriesData()
+  useEffect(() => {
+    const onScroll = (e) => {
+      const newShowFixed = window.scrollY > 200
+      showFixed !== newShowFixed && setShowFixed(newShowFixed)
+      // setShowFixed(newShowFixed)
+      console.log('render 1')
+      // showFixed !== newShowFixed && setShowFixed(newShowFixed)
+    }
+
+    document.addEventListener('scroll', onScroll)
+    return () => document.removeEventListener('scroll', onScroll)
+  }, [showFixed])
   // useEffect(() => {
   //   const fecthCategories = async () => {
   //     const response = await window.fetch(
@@ -41,14 +64,30 @@ export const ListOfCategory = () => {
   //       setCategories(response)
   //     })
   // }, [])
-
-  return (
-    <List>
-      {categories.map((category) => (
-        <Item key={category.id}>
-          <Category {...category} />
-        </Item>
-      ))}
+  const renderList = (fixed) => (
+    <List fixed={fixed}>
+      {loading
+        ? [1, 2, 3, 4, 5, 6].map((id) => (
+          <Item key={id}>
+            {' '}
+            <CategorySkeleton ligth={false} />
+          </Item>
+          ))
+        : categories.map((category) => (
+          <Item key={category.id}>
+            <Category {...category} />
+          </Item>
+        ))}
     </List>
+  )
+
+  // if (loading) {
+  //   return 'Cargando...'
+  // }
+  return (
+    <>
+      {renderList()}
+      {showFixed && renderList(true)}
+    </>
   )
 }
