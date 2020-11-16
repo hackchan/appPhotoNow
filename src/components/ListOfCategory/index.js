@@ -19,9 +19,9 @@ const useCategoriesData = () => {
         })
 
         setCategories(data)
-        // setLoading(false)
+        setLoading(false)
       } catch (error) {
-        // setLoading(false)
+        setLoading(false)
         console.log(error)
       }
     }
@@ -68,16 +68,16 @@ export const ListOfCategory = () => {
     <List fixed={fixed}>
       {loading
         ? [1, 2, 3, 4, 5, 6].map((id) => (
-          <Item key={id}>
-            {' '}
-            <CategorySkeleton ligth={false} />
-          </Item>
+            <Item key={id}>
+              {' '}
+              <CategorySkeleton light={false} />
+            </Item>
           ))
         : categories.map((category) => (
-          <Item key={category.id}>
-            <Category {...category} />
-          </Item>
-        ))}
+            <Item key={category.id}>
+              <Category {...category} />
+            </Item>
+          ))}
     </List>
   )
 
