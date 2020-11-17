@@ -6,7 +6,6 @@ import {
 } from './styles'
 
 export const CategorySkeleton = (props) => {
-  console.log(props)
   return (
     <ContainerCategorySkeleton>
       <CategoryImage light={props.light} />
