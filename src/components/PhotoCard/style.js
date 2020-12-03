@@ -1,5 +1,12 @@
 import styled from 'styled-components'
 import { fadeIn } from '../../styles/animations/animation'
+import { MdFavorite } from 'react-icons/md'
+
+export const LikeIcon = styled(MdFavorite)`
+  color: #ff277a;
+  ${fadeIn({ time: '250ms', type: 'ease-in' })}
+`
+
 export const ImgWrapper = styled.div`
   border-radius: 10px;
   display: block;
